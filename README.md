@@ -81,6 +81,24 @@ Process completed successfully!
 
 ```
 
+
+## Screenshots
+
+### Initial Folder Setup (Playlist1 highlighted to show it's the priority folder)
+![Initial Setup](assets/initial.png)
+
+### Playlist 1 Songs
+![Playlist 1 Songs](assets/playlist_1_songs.png)
+
+### Playlist 2 Songs
+![Playlist 2 Songs](assets/playlist_2_songs.png)
+
+### After Running Script
+![After Script](assets/after_script.png)
+
+### Output Songs
+![Output Songs](assets/output_songs.png)
+
 ---
 
 ## Error Handling
