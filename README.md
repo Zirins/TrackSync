@@ -36,8 +36,8 @@ python tracksync.py
 ### 2. Provide Input Paths
 Example:
 ```
-Enter the path to the priority folder: "E:\Music\Chinese Music Numbered"
-Enter the path to the secondary folder: "E:\Music\Chinese Music - Copy"
+Enter the path to the priority folder: "C:\Music\FavPlaylist1"
+Enter the path to the secondary folder: "C:\Music\FavPlaylist2"
 Enter the output folder name: unified
 ```
 
@@ -68,10 +68,17 @@ E:\Music\unified
 
 ## Example Output
 ```
-Track 001 - OriginalTrack1.mp3
-Track 002 - OriginalTrack2.mp3
-Track 003 - NewTrack1.mp3
-Track 004 - NewTrack2.mp3
+Loading priority folder...
+Loading secondary folder...
+Matching tracks and preserving priority order...
+Renumbering and copying files to output folder...
+Copied: Song A.mp3 -> Track 001 - Song A.mp3
+Copied: Song B.mp3 -> Track 002 - Song B.mp3
+Copied: Song C.mp3 -> Track 003 - Song C.mp3
+Copied: New Song D.mp3 -> Track 004 - New Song D.mp3
+Copied: New Song E.mp3 -> Track 005 - New Song E.mp3
+Process completed successfully!
+
 ```
 
 ---
