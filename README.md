@@ -44,7 +44,7 @@ Enter the output folder name: unified
 ### 3. Output Folder
 The output folder will be created **inside the priority folder's directory**:
 ```
-E:\Music\unified
+C:\Music\unified
 ```
 
 ---
@@ -68,17 +68,19 @@ E:\Music\unified
 
 ## Example Output
 ```
+Enter the path to the priority folder: C:\Music\Playlist1
+Enter the path to the secondary folder: C:\Music\Playlist2
+Enter the output folder name: unified
 Loading priority folder...
 Loading secondary folder...
 Matching tracks and preserving priority order...
 Renumbering and copying files to output folder...
-Copied: Song A.mp3 -> Track 001 - Song A.mp3
-Copied: Song B.mp3 -> Track 002 - Song B.mp3
-Copied: Song C.mp3 -> Track 003 - Song C.mp3
-Copied: New Song D.mp3 -> Track 004 - New Song D.mp3
-Copied: New Song E.mp3 -> Track 005 - New Song E.mp3
+Copied: Loving Caliber - Scared Of Heights.mp3 -> Track 001 - Loving Caliber - Scared Of Heights.mp3
+Copied: Modern Talking - Cheri Cheri Lady (Lyrics).mp3 -> Track 002 - Modern Talking - Cheri Cheri Lady (Lyrics).mp3
+Copied: You're A Woman, I'm A Man (Lyrics Video) - Bad Boys Blue.mp3 -> Track 003 - You're A Woman, I'm A Man (Lyrics Video) - Bad Boys Blue.mp3
+Copied: Shania Twain - I'm Gonna Getcha Good! (Red Version) (Official Music Video).mp3 -> Track 004 - Shania Twain - I'm Gonna Getcha Good! (Red Version) (Official Music Video).mp3
+Copied: SLANDER - Love Is Gone ft. Dylan Matthew (Acoustic).mp3 -> Track 005 - SLANDER - Love Is Gone ft. Dylan Matthew (Acoustic).mp3
 Process completed successfully!
-
 ```
 
 
