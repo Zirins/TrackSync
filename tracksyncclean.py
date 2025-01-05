@@ -45,8 +45,11 @@ def load_files_with_metadata(folder):
 
         except ID3NoHeaderError:
             print(f"Warning: {filename} has no ID3 header.")
-        except Exception as e:
-            print(f"Error processing {filename}: {e}")
+        except FileNotFoundError:
+            print(f"File not found: {filename}")
+        except PermissionError:
+            print(f"Permission denied for: {filename}")
+
 
     return files_with_metadata
 

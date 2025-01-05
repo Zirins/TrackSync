@@ -10,7 +10,7 @@ def load_files_with_metadata(folder):
     valid_extensions = (".mp3", ".flac", ".wav", ".m4a")
     files_with_metadata = []
 
-    # We’ll keep an index counter to preserve the order they appear in folder
+    # Keep an index counter to preserve the order they appear in folder
     index = 0
 
     for filename in os.listdir(folder):
@@ -49,8 +49,11 @@ def load_files_with_metadata(folder):
 
         except ID3NoHeaderError:
             print(f"Warning: {filename} has no ID3 header.")
-        except Exception as e:
-            print(f"Error processing {filename}: {e}")
+        except FileNotFoundError:
+            print(f"File not found: {filename}")
+        except PermissionError:
+            print(f"Permission denied for: {filename}")
+
 
     return files_with_metadata
 
@@ -145,9 +148,6 @@ def sanitize_filename(name):
 
 
 if __name__ == "__main__":
-    # priority_folder = os.path.normpath(input("Enter the path to the priority folder: ").strip('"'))
-    # secondary_folder = os.path.normpath(input("Enter the path to the secondary folder: ").strip('"'))
-    # output_folder_name = input("Enter the output folder name: ").strip('"')
 
     priority_folder = os.path.normpath(input("Enter the path to the priority folder: ").strip('"'))
     secondary_folder = os.path.normpath(input("Enter the path to the secondary folder: ").strip('"'))
