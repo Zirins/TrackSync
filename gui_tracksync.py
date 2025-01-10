@@ -75,42 +75,68 @@ def run_tracksync(script_mode, priority_folder, secondary_folder, output_folder,
         status_label.config(text="Error occurred!", fg="red")
         messagebox.showerror("Error", str(e))
 
+def show_help():
+    """
+    Displays a help message explaining the modes.
+    """
+    help_text = (
+        "Preserve Numbering:\n"
+        "  - Keeps the numbers already in the song names.\n"
+        "  - Example: '002. Song Title.mp3' → 'Track 001 - 002. Song Title.mp3'\n\n"
+        "Clean Numbering:\n"
+        "  - Removes the old numbers from the song names.\n"
+        "  - Example: '002. Song Title.mp3' → 'Track 001 - Song Title.mp3'"
+
+    )
+    messagebox.showinfo("Help - Modes", help_text)
+
 def create_gui():
     """
     Sets up the graphical user interface (GUI) for the TrackSync tool.
     """
     root = tk.Tk()  # Create the main application window
     root.title("TrackSync - Playlist Merger")  # Set the window title
-    root.geometry("600x400")  # Set the window size
+    root.geometry("800x400")  # Set the initial window size
+
+    # Configure the grid to make the widgets responsive
+    root.grid_rowconfigure(0, weight=1)
+    root.grid_rowconfigure(1, weight=1)
+    root.grid_rowconfigure(2, weight=1)
+    root.grid_rowconfigure(3, weight=1)
+    root.grid_rowconfigure(4, weight=1)
+    root.grid_columnconfigure(0, weight=1)
+    root.grid_columnconfigure(1, weight=2)
+    root.grid_columnconfigure(2, weight=1)
 
     # Priority folder input
     tk.Label(root, text="Priority Folder:").grid(row=0, column=0, padx=10, pady=10, sticky="w")
-    priority_entry = tk.Entry(root, width=50)  # Input field for the priority folder
-    priority_entry.grid(row=0, column=1, padx=10, pady=10)
-    tk.Button(root, text="Browse", command=lambda: select_folder(priority_entry)).grid(row=0, column=2, padx=10, pady=10)
+    priority_entry = tk.Entry(root)
+    priority_entry.grid(row=0, column=1, padx=10, pady=10, sticky="ew")  # Expand horizontally
+    tk.Button(root, text="Browse", command=lambda: select_folder(priority_entry)).grid(row=0, column=2, padx=10, pady=10, sticky="e")
 
     # Secondary folder input
     tk.Label(root, text="Secondary Folder:").grid(row=1, column=0, padx=10, pady=10, sticky="w")
-    secondary_entry = tk.Entry(root, width=50)  # Input field for the secondary folder
-    secondary_entry.grid(row=1, column=1, padx=10, pady=10)
-    tk.Button(root, text="Browse", command=lambda: select_folder(secondary_entry)).grid(row=1, column=2, padx=10, pady=10)
+    secondary_entry = tk.Entry(root)
+    secondary_entry.grid(row=1, column=1, padx=10, pady=10, sticky="ew")
+    tk.Button(root, text="Browse", command=lambda: select_folder(secondary_entry)).grid(row=1, column=2, padx=10, pady=10, sticky="e")
 
     # Output folder name input
     tk.Label(root, text="Output Folder Name:").grid(row=2, column=0, padx=10, pady=10, sticky="w")
-    output_entry = tk.Entry(root, width=50)  # Input field for the output folder name
-    output_entry.grid(row=2, column=1, padx=10, pady=10)
+    output_entry = tk.Entry(root)
+    output_entry.grid(row=2, column=1, padx=10, pady=10, sticky="ew")
 
-    # Mode selection (Preserve or Clean numbering)
+    # Mode selection with help button
     tk.Label(root, text="Mode:").grid(row=3, column=0, padx=10, pady=10, sticky="w")
     mode_var = tk.StringVar(value="Preserve Numbering")  # Default mode
     tk.Radiobutton(root, text="Preserve Numbering", variable=mode_var, value="Preserve Numbering").grid(row=3, column=1, sticky="w")
     tk.Radiobutton(root, text="Clean Numbering", variable=mode_var, value="Clean Numbering").grid(row=3, column=1, sticky="e")
+    tk.Button(root, text="?", command=show_help, width=2).grid(row=3, column=2, padx=5, pady=10, sticky="w")  # Help button
 
-    # Status label for feedback
+    # Status Label
     status_label = tk.Label(root, text="", fg="blue")
-    status_label.grid(row=5, column=1, padx=10, pady=10)
+    status_label.grid(row=5, column=1, padx=10, pady=10, sticky="ew")
 
-    # Run button to start the merging process
+    # Run Button
     tk.Button(
         root,
         text="Run",
@@ -118,6 +144,7 @@ def create_gui():
     ).grid(row=4, column=1, pady=20)
 
     root.mainloop()  # Start the Tkinter event loop
+
 
 if __name__ == "__main__":
     create_gui()
