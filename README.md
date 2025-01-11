@@ -27,6 +27,19 @@ The tool prioritizes one folder (the **priority folder**) as the source for the 
 
 ---
 
+## How to Run
+### Option 1: Use the Executable (No Python Required)
+1. Download the standalone executable from the [Releases](#).
+2. Double-click `gui_tracksync.exe` to launch the GUI.
+3. Follow the on-screen instructions to merge your playlists.
+
+### Option 2: Use the Python Script
+1. Ensure you have Python 3.6 or later installed.
+2. Install the required library:
+   ```bash
+   pip install mutagen
+   ```
+
 ## Usage
 ### 1. Run the Script
 ```bash
@@ -108,10 +121,6 @@ Process completed successfully!
 
 ### With Inputs
 ![GUI With Inputs](assets/gui_inputs.png)
-
-
-
-
 
 ---
 
