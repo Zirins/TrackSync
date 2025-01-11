@@ -101,6 +101,18 @@ Process completed successfully!
 ### Output Songs
 ![Output Songs](assets/output_songs.png)
 
+## GUI
+
+### Interface
+!![GUI](assets/gui.png)
+
+### With Inputs
+!![GUI With Inputs](assets/gui_inputs.png)
+
+
+
+
+
 ---
 
 ## Error Handling
