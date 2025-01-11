@@ -116,6 +116,16 @@ Process completed successfully!
 
 ## GUI
 
+### Security Note:
+Since this application is a portfolio project and not a commercially distributed product, the `.exe` file is not signed with a digital certificate.  
+As a result, you may encounter a **Windows SmartScreen warning** when running the executable.
+
+#### How to Proceed:
+- Click **More info** in the warning dialog.
+- Select **Run anyway** to execute the application.
+
+The application is safe to use, and you can verify its integrity by reviewing the source code available in this repository.
+
 ### Interface
 ![GUI](assets/gui.png)
 
@@ -140,7 +150,6 @@ Process completed successfully!
 ## Future Features
 - **Logs**: Add detailed log files for errors and actions taken.
 - **Progress Bars**: Display status for long playlists.
-- **GUI Support**: Build a visual interface using **`tkinter`** or **`PyQt5`**.
 - **More Formats**: Expand to support **video files** or additional audio formats.
 
 ---
