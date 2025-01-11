@@ -29,7 +29,7 @@ The tool prioritizes one folder (the **priority folder**) as the source for the 
 
 ## How to Run
 ### Option 1: Use the Executable (No Python Required)
-1. Download the standalone executable from the [Releases](#).
+1. Download the standalone executable from the [Releases](https://github.com/Zirins/TrackSync/releases/).
 2. Double-click `gui_tracksync.exe` to launch the GUI.
 3. Follow the on-screen instructions to merge your playlists.
 
@@ -116,7 +116,7 @@ Process completed successfully!
 
 ## GUI
 
-### Security Note:
+### Important Security Note:
 Since this application is a portfolio project and not a commercially distributed product, the `.exe` file is not signed with a digital certificate.  
 As a result, you may encounter a **Windows SmartScreen warning** when running the executable.
 
@@ -136,9 +136,10 @@ The application is safe to use, and you can verify its integrity by reviewing th
 
 ## Error Handling
 - Logs warnings for **files missing metadata**.
+- Processes all valid files while skipping problematic ones.
 - Replaces **invalid characters** in filenames (e.g., `?`, `*`) to avoid filesystem errors.
 - Skips **unreadable files** but continues processing others.
-
+- 
 ---
 
 ## Limitations
