@@ -104,10 +104,10 @@ Process completed successfully!
 ## GUI
 
 ### Interface
-!![GUI](assets/gui.png)
+![GUI](assets/gui.png)
 
 ### With Inputs
-!![GUI With Inputs](assets/gui_inputs.png)
+![GUI With Inputs](assets/gui_inputs.png)
 
 
 
