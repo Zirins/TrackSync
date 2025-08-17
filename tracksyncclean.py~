@@ -91,10 +91,10 @@ def renumber_and_copy_files(final_list, output_folder):
 
         src_path = os.path.join(source_folder, filename)
 
-        # Remove all leading track numbers and prefixes
+        # 1) Remove leading track numbers like "002." or "010 -"
         cleaned_original = remove_leading_track_number(filename)
 
-        # Sanitize and build new filename
+        # 2) Sanitize and build new filename
         new_filename = f"Track {track_counter:03d} - {sanitize_filename(cleaned_original)}"
         track_counter += 1
 
@@ -107,20 +107,16 @@ def renumber_and_copy_files(final_list, output_folder):
 
 def remove_leading_track_number(name):
     """
-    Removes leading track numbers and "Track XXX -" prefixes from filenames.
+    Removes leading digits (and optional punctuation/spaces) from the start of the filename.
     Examples:
-        "Track 001 - MySong.mp3"  -> "MySong.mp3"
         "002. MySong.mp3"  -> "MySong.mp3"
         "010 - Another.mp3" -> "Another.mp3"
         "10  Some Song.mp3" -> "Some Song.mp3"
     """
-    # First remove "Track XXX -" pattern (case insensitive)
-    name = re.sub(r'^Track\s+\d+\s*-\s*', '', name, flags=re.IGNORECASE).strip()
-
-    # Then remove simple numeric prefixes like "002." or "010 -"
-    name = re.sub(r'^\d+[\s\.\-_]*', '', name).strip()
-
-    return name
+    # Regex: ^\d+ means one or more digits at the start
+    #        [\s\.\-_]* means optional space, dot, dash, or underscore
+    # Use strip() at the end to remove leftover whitespace
+    return re.sub(r'^\d+[\s\.\-_]*', '', name).strip()
 
 def sanitize_filename(name):
     name = unicodedata.normalize("NFKD", name)
