@@ -266,9 +266,9 @@ def create_gui():
     """
     root = tk.Tk()
     root.title("🎵 TrackSync - Smart Playlist Merger")
-    root.geometry("800x700")
+    root.geometry("700x550")
     root.configure(bg="#F5F5F5")
-    root.resizable(True, True)
+    root.resizable(True, False)
 
     # Configure grid weights for responsive design
     root.grid_columnconfigure(1, weight=1)
