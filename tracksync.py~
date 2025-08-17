@@ -112,16 +112,6 @@ def match_tracks(priority_files, secondary_files):
     return combined
 
 
-def clean_filename_for_preserve_mode(filename):
-    """
-    For preserve mode: Remove existing "Track XXX -" prefixes to avoid duplication,
-    but keep other numbering in the filename (like "002." patterns).
-    """
-    # Remove existing "Track XXX -" pattern (case insensitive)
-    cleaned = re.sub(r'^Track\s+\d+\s*-\s*', '', filename, flags=re.IGNORECASE).strip()
-    return cleaned
-
-
 def renumber_and_copy_files(final_list, output_folder):
     """
     Assign new track numbers in the order they appear in final_list.
@@ -137,11 +127,8 @@ def renumber_and_copy_files(final_list, output_folder):
 
         src_path = os.path.join(source_folder, filename)
 
-        # Clean the filename to remove existing "Track XXX -" prefixes
-        cleaned_filename = clean_filename_for_preserve_mode(filename)
-
-        # Format: Track 001 - cleaned_filename
-        new_filename = f"Track {track_counter:03d} - {sanitize_filename(cleaned_filename)}"
+        # Format: Track 001 - original_filename
+        new_filename = f"Track {track_counter:03d} - {sanitize_filename(filename)}"
         track_counter += 1
 
         dest_path = os.path.join(output_folder, new_filename)
